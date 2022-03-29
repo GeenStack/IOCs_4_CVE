@@ -50,8 +50,8 @@ def get_iocs(cve_id):
         #
         #
         #
-        if not indicators["indicators"]:
-            print("New IOCs not found")
+        if not indicators:
+            print("New {} IOCs not found".format(cve_id))
             return False
         else:
             report = "Найдены новые IOCs, связанные с {}\n".format(cve_id)
