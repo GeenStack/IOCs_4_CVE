@@ -54,8 +54,9 @@ def check_cve_in_db(cve_id):
         query = "INSERT INTO cve VALUES ('{}')".format(cve_id)
         insert_query(query)
 
+
 def get_cve_list():
-    connection. cursor = get_connection()
+    connection, cursor = get_connection()
     query = "SELECT * FROM cve"
     cursor.execute(query)
     data = cursor.fetchall()
