@@ -58,6 +58,6 @@ def get_iocs(cve_id):
             for indicators_type in indicators_types:
                 report += "{} - {}\n".format(indicators_type, str(indicators_types[indicators_type]))
             print(report)
-            return {"indicators":indicators, "id_list":indicators_id, "types_count":indicators_types}
+            return (report, {"indicators":indicators, "id_list":indicators_id, "types_count":indicators_types})
     else:
             return False
