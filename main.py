@@ -2,6 +2,7 @@ from db_module import *
 from get_iocs import *
 from datetime import datetime
 import requests
+from telegram_config import *
 
 
 def get_time():
