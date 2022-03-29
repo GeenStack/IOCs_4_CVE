@@ -60,5 +60,5 @@ def get_cve_list():
     query = "SELECT * FROM cve"
     cursor.execute(query)
     data = cursor.fetchall()
-    connection.cose()
+    connection.close()
     return data

@@ -50,10 +50,14 @@ def get_iocs(cve_id):
         #
         #
         #
-        report = "Найдены новые IOCs, связанные с {}\n".format(cve_id)
-        for indicators_type in indicators_types:
-            report += "{} - {}\n".format(indicators_type, str(indicators_types[indicators_type]))
-        print(report)
-        return {"indicators":indicators, "id_list":indicators_id, "types_count":indicators_types}
+        if not indicators["indicators"]:
+            print("New IOCs not found")
+            return False
+        else:
+            report = "Найдены новые IOCs, связанные с {}\n".format(cve_id)
+            for indicators_type in indicators_types:
+                report += "{} - {}\n".format(indicators_type, str(indicators_types[indicators_type]))
+            print(report)
+            return {"indicators":indicators, "id_list":indicators_id, "types_count":indicators_types}
     else:
             return False
