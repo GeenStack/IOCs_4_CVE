@@ -5,7 +5,7 @@ alien_vault_url = "https://otx.alienvault.com/api/v1/"
 
 
 def get_iocs(cve_id):
-
+    check_cve_in_db(cve_id)
     r = requests.get(alien_vault_url+"/indicators/cve/{}".format(cve_id))
     data = r.json()
     indicators = []
@@ -40,7 +40,8 @@ def get_iocs(cve_id):
                         else:
                             pass
             except Exception as e:
-                print(query)
+                pass
+                #print(query)
                 continue
 
         #Доработать отчет.

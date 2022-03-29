@@ -44,3 +44,20 @@ def check_ioc_in_db(cve_id, alien_vault_ioc_id):
         return False
     else:
         return True
+
+def check_cve_in_db(cve_id):
+    connection, cursor = get_connection()
+    query = "SELECT * FROM cve WHERE cve_id='{}'".format(cve_id)
+    cursor.execute(query)
+    data = cursor.fetchone()
+    if not data:
+        query = "INSERT INTO cve VALUES ('{}')".format(cve_id)
+        insert_query(query)
+
+def get_cve_list():
+    connection. cursor = get_connection()
+    query = "SELECT * FROM cve"
+    cursor.execute(query)
+    data = cursor.fetchall()
+    connection.cose()
+    return data
